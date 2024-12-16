@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Brain Tumor Detection</title>
+ <link rel="stylesheet" href="styles.css">
+ </head>
+ <body>
+ <nav>
+ <div class="logo"><h1>Brain Tumor Detection</h1></div>
+  <ul>
+    <li><a href="#" id="home">Home</a></li>
+ <li><a href="#" id="navLogin">Login</a></li>
+ <li><a href="#" id="navRegister">Register</a></li>
+ <li><a href="#" id="navPrediction">Image Prediction</a></li>
+
+ <li><a href="#" id="schemes">Government Schemes</a></li>
+ <li><a href="#" id="navLogout" style="display:none;">Logout</a></li>
+ </ul>
+ <div id="profile" style="display:none; color: white; font-weight: bold;"></div>
+ </nav>
+ 
+ <div class="container">
+
+ <section id="login" class="hidden">
+ <h2>Login</h2>
+ <form id="loginForm">
+ <input type="email" name="email" placeholder="Email" required>
+ <input type="password" name="password" placeholder="Password" required>
+ <button type="submit">Login</button>
+ </form>
+ </section>
+
+
+
+
+
+<section id="home" class="schemes-section" style="text-align: center;">
+    <!-- Animated Welcome Text -->
+    <h2 style="animation: fadeInOut 4s ease-in-out infinite, colorChange 4s linear infinite;">
+        Welcome to our brain tumor detection
+    </h2>
+    
+    <!-- Regular Sentence -->
+    <p>
+        <h3>Strength grows in the face of adversity...keep fighting, hope never fades.</h3>
+    </p>
+    
+    <!-- About Project Section -->
+    <div style="margin-top: 20px; font-size: 1.1rem;">
+        <h3>About This Project</h3>
+        <p class="flex align-center w-[100px]">
+            This project leverages advanced AI algorithms to detect brain tumors from MRI scans.
+            The tool is designed to assist doctors in making quick diagnoses,
+            helping patients get timely treatment. 
+            Early detection plays a crucial role in improving survival rates.
+        </p>
+    </div>
+</section>
+
+<style>
+    @keyframes fadeInOut {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes colorChange {
+        0% {
+            color: #ff6347; /* Tomato */
+        }
+        25% {
+            color: #1e90ff; /* Dodger Blue */
+        }
+        50% {
+            color: #32cd32; /* Lime Green */
+        }
+        75% {
+            color: #ff1493; /* Deep Pink */
+        }
+        100% {
+            color: #ff6347; /* Tomato */
+        }
+    }
+</style>
+
+
+ 
+ <section id="register" class="hidden">
+    <h2>Register</h2>
+    <form id="registerForm">
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Register</button>
+    </form>
+    </section>
+   
+
+    <section id="prediction" class="hidden">
+        <h2>Brain Tumor Prediction</h2>
+        <input type="file" id="imageInput" accept="image/*">
+        <button onclick="predictFromImage()">Upload and Predict</button>
+        <div id="predictionResult" style="font-weight: bold; font-size: 1.5em; margin-top: 10px;"></div>
+    </section>
+    
+    
+  
+
+    <section id="schemes" class="hidden" style="background: rgba(123, 194, 158, 0.6); backdrop-filter: blur(8px); padding: 20px; border-radius: 10px; color: black;">
+        <h2 id="animated-heading" style="text-align: center; font-size: 2em; font-weight: bold;">
+            Government Schemes for Medical and Income Benefits
+        </h2>
+        <ol style="list-style-position: inside; margin-top: 20px; padding-left: 0;">
+            <li style="margin-bottom: 15px;">
+                <a href="https://www.india.gov.in/spotlight/ayushman-bharat-national-health-protection-mission" target="_blank" style="color: black; text-decoration: none; font-weight: bold;">
+                    Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana (AB PM-JAY)
+                </a>
+                - Health insurance of up to ₹5 lakh per family annually for secondary and tertiary healthcare.
+            </li>
+            <li style="margin-bottom: 15px;">
+                <a href="https://www.india.gov.in/topics/health/rashtriya-swasthya-bima-yojana" target="_blank" style="color: black; text-decoration: none; font-weight: bold;">
+                    Rashtriya Swasthya Bima Yojana (RSBY)
+                </a>
+                - Health insurance for workers in the unorganized sector and their families.
+            </li>
+            <li style="margin-bottom: 15px;">
+                <a href="https://www.india.gov.in/topics/health/senior-citizen-health-insurance-scheme" target="_blank" style="color: black; text-decoration: none; font-weight: bold;">
+                    Senior Citizen Health Insurance Scheme (SCHIS)
+                </a>
+                - Additional health insurance coverage for senior citizens under Ayushman Bharat.
+            </li>
+            <li style="margin-bottom: 15px;">
+                <a href="https://www.india.gov.in/topics/health/janani-suraksha-yojana" target="_blank" style="color: black; text-decoration: none; font-weight: bold;">
+                    Janani Suraksha Yojana (JSY)
+                </a>
+                - Cash assistance to promote institutional deliveries among poor pregnant women.
+            </li>
+            <li style="margin-bottom: 15px;">
+                <a href="https://www.india.gov.in/topics/social-development/national-social-assistance-programme" target="_blank" style="color: black; text-decoration: none; font-weight: bold;">
+                    National Social Assistance Programme (NSAP)
+                </a>
+                - Financial assistance for elderly, disabled, and widows below the poverty line.
+            </li>
+        </ol>
+    </section>
+    
+    <style>
+        /* Continuous animation for the heading */
+        @keyframes fade-color {
+            0% {
+                color: rgb(235, 166, 240);
+            }
+            50% {
+                color: rgb(100, 134, 45);
+            }
+            100% {
+                color: black;
+            }
+        }
+    
+        #animated-heading {
+            animation: fade-color 3s infinite; /* 3 seconds duration, infinite loop */
+        }
+    </style>
+    
+
+    
+    </section>
+    </div>
+    <div id="profile" style="display:none; position: absolute; top: 10px; right: 10px; text-align: right;">
+    <span style="color: white; font-weight: bold;">Logged in as: </span>
+    <span style="color: white; font-weight: bold;" id="userEmail"></span>
+    <button id="logoutButton" style="margin-left: 10px; background-color: #f44336; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Logout</button>
+    </div>
+    
+
+    <script src="script.js"></script>
+    
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script> -->
+    </body>
+    </html>
+
+
+
+
+
+    
